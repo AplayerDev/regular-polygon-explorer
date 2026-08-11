@@ -19,7 +19,7 @@
 ### English Interface
 
 <p align="center">
-  <img src="assets/screenshot-en.png" alt="Regular Polygon Explorer - English Interface" width="900">
+  <img src="screenshots/screenshot-en.png" alt="Regular Polygon Explorer - English Interface" width="900">
 </p>
 
 The screenshot above shows the English version of the Regular Polygon Explorer interface, including the interactive polygon canvas, controls, mathematical information, and visualization options.
@@ -29,7 +29,7 @@ The screenshot above shows the English version of the Regular Polygon Explorer i
 ### Persian Interface
 
 <p align="center">
-  <img src="assets/screenshot-fa.png" alt="Regular Polygon Explorer - Persian Interface" width="900">
+  <img src="screenshots/screenshot-fa.png" alt="Regular Polygon Explorer - Persian Interface" width="900">
 </p>
 
 The application also provides a fully localized Persian interface with RTL layout and local Persian font support.
@@ -373,15 +373,20 @@ regular-polygon-explorer/
 ├── index.html
 ├── style.css
 ├── script.js
+│
 ├── README.md
 ├── README.fa.md
 ├── LICENSE
 │
-└── fonts/
-    ├── Vazirmatn-Regular.woff2
-    ├── Vazirmatn-Medium.woff2
-    ├── Vazirmatn-SemiBold.woff2
-    └── Vazirmatn-Bold.woff2
+├── fonts/
+│   ├── Vazirmatn-Regular.woff2
+│   ├── Vazirmatn-Medium.woff2
+│   ├── Vazirmatn-SemiBold.woff2
+│   └── Vazirmatn-Bold.woff2
+│
+└── screenshots/
+    ├── screenshot-en.png
+    └── screenshot-fa.png
 ```
 
 ---
