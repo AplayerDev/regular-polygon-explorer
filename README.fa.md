@@ -13,6 +13,25 @@
 [🇬🇧 English](README.md)
 
 </p>
+## 🖼️ تصاویر پروژه
+
+### رابط کاربری فارسی
+
+<p align="center">
+  <img src="assets/screenshot-fa.png" alt="Regular Polygon Explorer - رابط کاربری فارسی" width="900">
+</p>
+
+تصویر بالا نمایی از رابط کاربری فارسی پروژه را نشان می‌دهد که شامل Canvas تعاملی، کنترل‌های چندضلعی، اطلاعات ریاضی و تنظیمات ظاهری است.
+
+---
+
+### رابط کاربری انگلیسی
+
+<p align="center">
+  <img src="assets/screenshot-en.png" alt="Regular Polygon Explorer - English Interface" width="900">
+</p>
+
+پروژه علاوه بر رابط فارسی، از رابط انگلیسی با چیدمان LTR نیز پشتیبانی می‌کند.
 
 ---
 
@@ -371,11 +390,15 @@ regular-polygon-explorer/
 ├── README.fa.md
 ├── LICENSE
 │
-└── fonts/
-    ├── Vazirmatn-Regular.woff2
-    ├── Vazirmatn-Medium.woff2
-    ├── Vazirmatn-SemiBold.woff2
-    └── Vazirmatn-Bold.woff2
+├── fonts/
+│   ├── Vazirmatn-Regular.woff2
+│   ├── Vazirmatn-Medium.woff2
+│   ├── Vazirmatn-SemiBold.woff2
+│   └── Vazirmatn-Bold.woff2
+│
+└── assets/
+    ├── screenshot-en.png
+    └── screenshot-fa.png
 ```
 
 ---
