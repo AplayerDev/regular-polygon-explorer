@@ -14,6 +14,26 @@
 
 </p>
 
+## 🖼️ Screenshot
+
+### English Interface
+
+<p align="center">
+  <img src="screenshots/screenshot-en.png" alt="Regular Polygon Explorer - English Interface" width="900">
+</p>
+
+The screenshot above shows the English version of the Regular Polygon Explorer interface, including the interactive polygon canvas, controls, mathematical information, and visualization options.
+
+---
+
+### Persian Interface
+
+<p align="center">
+  <img src="screenshots/screenshot-fa.png" alt="Regular Polygon Explorer - Persian Interface" width="900">
+</p>
+
+The application also provides a fully localized Persian interface with RTL layout and local Persian font support.
+
 ---
 
 ## Overview
