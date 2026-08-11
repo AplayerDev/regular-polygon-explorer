@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="theme-color"
+    content="#070b16"
+  >
+
+  <meta
+    name="description"
+    content="Regular Polygon Explorer — Interactive regular polygon explorer"
+  >
+
+  <meta
+    name="author"
+    content="Amirmohammad Abdolvand"
+  >
+
+  <title>Regular Polygon Explorer</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="app-shell">
+
+  <!-- Header -->
+  <header class="hero">
+
+    <div class="hero-content">
+      <p class="eyebrow">
+        MATHEMATICS • INTERACTIVE
+      </p>
+
+      <h1>
+        Regular Polygon Explorer
+      </h1>
+
+      <p class="subtitle" data-i18n="subtitle">
+        چندضلعی‌های منتظم را با تغییر تعداد اضلاع کشف کنید
+      </p>
+    </div>
+
+    <div class="header-actions">
+
+      <button
+        class="language-btn"
+        id="languageBtn"
+        type="button"
+        aria-label="Change language"
+      >
+        EN
+      </button>
+
+      <button
+        class="icon-btn"
+        id="fullscreenBtn"
+        type="button"
+        aria-label="تمام صفحه"
+      >
+        ⛶
+      </button>
+
+      <button
+        class="icon-btn"
+        id="resetTopBtn"
+        type="button"
+        aria-label="بازنشانی"
+      >
+        ↻
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- Main workspace -->
+  <section
+    class="workspace"
+    aria-label="Polygon Explorer"
+  >
+
+    <!-- Canvas -->
+    <div class="visual-card">
+
+      <div class="canvas-toolbar">
+
+        <span
+          class="status-dot"
+          aria-hidden="true"
+        ></span>
+
+        <span id="renderStatus">
+          آماده
+        </span>
+
+        <span class="toolbar-spacer"></span>
+
+        <button
+          class="mini-btn"
+          id="zoomOutBtn"
+          type="button"
+          aria-label="Zoom out"
+        >
+          −
+        </button>
+
+        <output id="zoomValue">
+          100%
+        </output>
+
+        <button
+          class="mini-btn"
+          id="zoomInBtn"
+          type="button"
+          aria-label="Zoom in"
+        >
+          +
+        </button>
+
+      </div>
+
+      <div
+        class="canvas-wrap"
+        id="canvasWrap"
+      >
+
+        <canvas
+          id="polygonCanvas"
+          aria-label="Interactive regular polygon"
+        ></canvas>
+
+        <div
+          class="canvas-hint"
+          data-i18n="canvasHint"
+        >
+          Drag برای چرخش • Wheel برای Zoom
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Controls -->
+    <aside class="control-panel">
+
+      <!-- Sides -->
+      <section class="control-section main-control">
+
+        <div class="number-display">
+
+          <div>
+            <span
+              class="muted"
+              data-i18n="current"
+            >
+              تعداد فعلی
+            </span>
+
+            <strong id="sidesValue">
+              4 ضلع
+            </strong>
+          </div>
+
+          <span
+            class="shape-name"
+            id="shapeName"
+          >
+            مربع
+          </span>
+
+        </div>
+
+        <label for="sidesSlider">
+
+          <span data-i18n="sides">
+            تعداد اضلاع
+          </span>
+
+          <span class="range-label">
+            3 — 25
+          </span>
+
+        </label>
+
+        <input
+          id="sidesSlider"
+          type="range"
+          min="3"
+          max="25"
+          value="4"
+          step="1"
+        >
+
+      </section>
+
+
+      <!-- Special numbers -->
+      <section class="control-section">
+
+        <div class="section-title">
+
+          <h2 data-i18n="specialNumbers">
+            تعدادهای خاص
+          </h2>
+
+          <span
+            id="customBadge"
+            class="badge hidden"
+            data-i18n="custom"
+          >
+            مقدار سفارشی
+          </span>
+
+        </div>
+
+        <div
+          class="special-grid"
+          id="specialButtons"
+        >
+
+          <button data-sides="50">50</button>
+          <button data-sides="100">100</button>
+          <button data-sides="500">500</button>
+          <button data-sides="1000">1,000</button>
+          <button data-sides="5000">5,000</button>
+          <button data-sides="10000">10,000</button>
+          <button data-sides="100000">100,000</button>
+          <button data-sides="1000000">1,000,000</button>
+
+        </div>
+
+      </section>
+
+
+      <!-- Presets -->
+      <section class="control-section">
+
+        <div class="section-title">
+
+          <h2 data-i18n="presets">
+            Presetها
+          </h2>
+
+        </div>
+
+        <div class="preset-grid">
+
+          <button
+            data-preset="3"
+            data-preset-name="Triangle"
+          >
+            Triangle
+          </button>
+
+          <button
+            data-preset="4"
+            data-preset-name="Square"
+          >
+            Square
+          </button>
+
+          <button
+            data-preset="5"
+            data-preset-name="Pentagon"
+          >
+            Pentagon
+          </button>
+
+          <button
+            data-preset="6"
+            data-preset-name="Hexagon"
+          >
+            Hexagon
+          </button>
+
+          <button
+            data-preset="8"
+            data-preset-name="Octagon"
+          >
+            Octagon
+          </button>
+
+          <button
+            data-preset="10"
+            data-preset-name="Decagon"
+          >
+            Decagon
+          </button>
+
+          <button
+            data-preset="25"
+            data-preset-name="25-Gon"
+          >
+            25-Gon
+          </button>
+
+          <button
+            data-preset="1000000"
+            data-preset-name="Circle-like"
+          >
+            Circle-like
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- Rotation -->
+      <section class="control-section">
+
+        <label for="rotationSlider">
+
+          <span data-i18n="rotation">
+            چرخش
+          </span>
+
+          <output id="rotationValue">
+            0°
+          </output>
+
+        </label>
+
+        <input
+          id="rotationSlider"
+          type="range"
+          min="0"
+          max="360"
+          value="0"
+          step="1"
+        >
+
+      </section>
+
+
+      <!-- Appearance -->
+      <section class="control-section appearance-controls">
+
+        <div class="section-title">
+
+          <h2 data-i18n="appearance">
+            ظاهر
+          </h2>
+
+        </div>
+
+        <div class="color-row">
+
+          <label>
+
+            <span data-i18n="fillColor">
+              رنگ داخل
+            </span>
+
+            <input
+              id="fillColor"
+              type="color"
+              value="#6366f1"
+              aria-label="Fill color"
+            >
+
+          </label>
+
+          <label>
+
+            <span data-i18n="strokeColor">
+              رنگ خط
+            </span>
+
+            <input
+              id="strokeColor"
+              type="color"
+              value="#a5b4fc"
+              aria-label="Stroke color"
+            >
+
+          </label>
+
+        </div>
+
+        <label for="lineWidth">
+
+          <span data-i18n="lineWidth">
+            ضخامت خط
+          </span>
+
+          <output id="lineWidthValue">
+            2px
+          </output>
+
+        </label>
+
+        <input
+          id="lineWidth"
+          type="range"
+          min="1"
+          max="8"
+          value="2"
+          step="1"
+        >
+
+      </section>
+
+
+      <!-- Toggles -->
+      <section class="control-section toggles">
+
+        <label class="switch-row">
+
+          <span data-i18n="vertices">
+            نمایش رأس‌ها
+          </span>
+
+          <input
+            id="showVertices"
+            type="checkbox"
+          >
+
+          <i></i>
+
+        </label>
+
+        <label class="switch-row">
+
+          <span data-i18n="circumcircle">
+            نمایش دایره محیطی
+          </span>
+
+          <input
+            id="showCircumcircle"
+            type="checkbox"
+          >
+
+          <i></i>
+
+        </label>
+
+        <label class="switch-row">
+
+          <span data-i18n="compareCircle">
+            مقایسه با دایره
+          </span>
+
+          <input
+            id="compareCircle"
+            type="checkbox"
+          >
+
+          <i></i>
+
+        </label>
+
+      </section>
+
+
+      <!-- Export -->
+      <section class="control-section">
+
+        <div class="section-title">
+
+          <h2 data-i18n="export">
+            خروجی
+          </h2>
+
+        </div>
+
+        <div class="export-grid">
+
+          <button
+            id="pngBtn"
+            class="primary-btn"
+            type="button"
+            data-i18n="downloadPNG"
+          >
+            Download PNG
+          </button>
+
+          <button
+            id="svgBtn"
+            type="button"
+            data-i18n="downloadSVG"
+          >
+            Download SVG
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <button
+        id="resetBtn"
+        class="reset-btn"
+        type="button"
+        data-i18n="reset"
+      >
+        Reset
+      </button>
+
+    </aside>
+
+  </section>
+
+
+  <!-- Information -->
+  <section class="info-grid">
+
+    <div class="info-card">
+
+      <h2 data-i18n="shapeInfo">
+        اطلاعات شکل
+      </h2>
+
+      <dl>
+
+        <div>
+          <dt data-i18n="numberOfSides">
+            تعداد اضلاع
+          </dt>
+
+          <dd id="infoSides">
+            4
+          </dd>
+        </div>
+
+        <div>
+          <dt data-i18n="numberOfVertices">
+            تعداد رأس‌ها
+          </dt>
+
+          <dd id="infoVertices">
+            4
+          </dd>
+        </div>
+
+        <div>
+          <dt data-i18n="interiorAngle">
+            زاویه داخلی
+          </dt>
+
+          <dd id="infoInterior">
+            90°
+          </dd>
+        </div>
+
+        <div>
+          <dt data-i18n="centralAngle">
+            زاویه مرکزی
+          </dt>
+
+          <dd id="infoCentral">
+            90°
+          </dd>
+        </div>
+
+        <div>
+          <dt data-i18n="areaRatio">
+            نسبت مساحت به دایره
+          </dt>
+
+          <dd id="infoAreaRatio">
+            63.66%
+          </dd>
+        </div>
+
+      </dl>
+
+    </div>
+
+
+    <div class="info-card education">
+
+      <h2 data-i18n="whyCircle">
+        چرا چندضلعی با افزایش تعداد اضلاع شبیه دایره می‌شود؟
+      </h2>
+
+      <p data-i18n="educationText">
+        با افزایش تعداد اضلاع، زاویه مرکزی هر ضلع کوچک‌تر می‌شود و مرز چندضلعی بخش‌های بیشتری از محیط دایره را دنبال می‌کند؛ در نتیجه شکل از نظر بصری به دایره نزدیک‌تر می‌شود.
+      </p>
+
+      <div class="formula-grid">
+
+        <div>
+
+          <span data-i18n="centralAngle">
+            زاویه مرکزی
+          </span>
+
+          <code>
+            360° / n
+          </code>
+
+        </div>
+
+        <div>
+
+          <span data-i18n="interiorAngle">
+            زاویه داخلی
+          </span>
+
+          <code>
+            ((n − 2) × 180°) / n
+          </code>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+
+    <span>
+      Vanilla JavaScript •
+      <span data-i18n="noDependencies">
+        بدون وابستگی خارجی
+      </span>
+      • © 2026 Amirmohammad Abdolvand
+      — Regular Polygon Explorer
+    </span>
+
+    <span>
+      Arrow Keys • R • F • + • −
+    </span>
+
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
