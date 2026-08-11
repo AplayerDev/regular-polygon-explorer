@@ -5,14 +5,17 @@
 **🇮🇷 فارسی | 🇬🇧 [English](README.md)**
 
 ---
+
 <p align="center">
 
-[🚀 بازدید آنلاین از پروژ] ](https://AplayerDev.github.io/regular-polygon-explorer/)
-&nbsp;&nbsp;•&nbsp;&nbsp;
-[📖 مستندات ](README.md)
+[🚀 مشاهدهٔ آنلاین پروژه](https://AplayerDev.github.io/regular-polygon-explorer/)
+  •  
+[🇬🇧 English](README.md)
 
 </p>
+
 ---
+
 ## معرفی
 
 **Regular Polygon Explorer** یک برنامهٔ تحت وب تعاملی برای نمایش، بررسی و مقایسهٔ چندضلعی‌های منتظم است.
