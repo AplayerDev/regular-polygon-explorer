@@ -5,7 +5,14 @@
 **🇬🇧 English | 🇮🇷 [فارسی](README.fa.md)**
 
 ---
+<p align="center">
 
+[🚀 Live Demo](https://AplayerDev.github.io/regular-polygon-explorer/)
+&nbsp;&nbsp;•&nbsp;&nbsp;
+[📖 Documentation](README.md)
+
+</p>
+---
 ## Overview
 
 **Regular Polygon Explorer** is an interactive web application for visualizing, exploring, and comparing regular polygons.
